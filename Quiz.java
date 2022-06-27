@@ -137,7 +137,11 @@ public class Quiz extends JFrame implements ActionListener {
 	JLabel team3NameFieldSchrift;
 	JLabel team4NameFieldSchrift;
 	
+	JLabel maxZeichenJLabel;
+	
 	JLabel commingSoonField;
+	
+	JLabel linieField;
 
 	JFrame menueFrame = new JFrame();
 	JFrame beantwortenFrame = new JFrame();
@@ -178,7 +182,7 @@ public class Quiz extends JFrame implements ActionListener {
 		 menueFrame.add(zurueckButton);
 		 
 		 startButton = new JButton("Start");
-		 startButton.setBounds(150, 300, 110, 50);
+		 startButton.setBounds(150, 320, 110, 50);
 		 menueFrame.add(startButton);
 		 
 		 commingSoonField = new JLabel("Comming Soon");
@@ -186,36 +190,44 @@ public class Quiz extends JFrame implements ActionListener {
 		 //menueFrame.add(commingSoonField); 
 		 
 		 team1NameFieldSchrift = new JLabel("Teamname 1: ");
-		 team1NameFieldSchrift.setBounds(20, 140, 100, 50);
+		 team1NameFieldSchrift.setBounds(20, 165, 100, 50);
 		 menueFrame.add(team1NameFieldSchrift);
 		 
 		 team2NameFieldSchrift = new JLabel("Teamname 2: ");
-		 team2NameFieldSchrift.setBounds(150, 140, 100, 50);
+		 team2NameFieldSchrift.setBounds(150, 165, 100, 50);
 		 menueFrame.add(team2NameFieldSchrift);
 		 
 		 team3NameFieldSchrift = new JLabel("Teamname 3: ");
-		 team3NameFieldSchrift.setBounds(20, 220, 100, 50);
+		 team3NameFieldSchrift.setBounds(20, 245, 100, 50);
 		 menueFrame.add(team3NameFieldSchrift);
 		 
 		 team4NameFieldSchrift = new JLabel("Teamname 4: ");
-		 team4NameFieldSchrift.setBounds(150, 220, 100, 50);
+		 team4NameFieldSchrift.setBounds(150, 245, 100, 50);
 		 menueFrame.add(team4NameFieldSchrift);
 		 
 		 team1NameField = new JTextField();
-		 team1NameField.setBounds(20, 180, 90, 30);
+		 team1NameField.setBounds(20, 205, 90, 30);
 		 menueFrame.add(team1NameField);
 		 
 		 team2NameField = new JTextField();
-		 team2NameField.setBounds(150, 180, 90, 30);
+		 team2NameField.setBounds(150, 205, 90, 30);
 		 menueFrame.add(team2NameField);
-		 
+		
 		 team3NameField = new JTextField();
-		 team3NameField.setBounds(20, 260, 90, 30);
+		 team3NameField.setBounds(20, 285, 90, 30);
 		 menueFrame.add(team3NameField);
 		 
 		 team4NameField = new JTextField();
-		 team4NameField.setBounds(150, 260, 90, 30);
+		 team4NameField.setBounds(150, 285, 90, 30);
 		 menueFrame.add(team4NameField);
+		 
+		 maxZeichenJLabel = new JLabel("(maximal 8 Zeichen!)");
+		 maxZeichenJLabel.setBounds(65, 140, 150, 50);
+		 menueFrame.add(maxZeichenJLabel);
+		 
+		 linieField = new JLabel("—————————————————————");
+		 linieField.setBounds(10, 120, 500, 50);
+		 menueFrame.add(linieField);
 		 
 		team1NameFieldSchrift.setVisible(false);
 		team2NameFieldSchrift.setVisible(false);
@@ -225,6 +237,8 @@ public class Quiz extends JFrame implements ActionListener {
 		team2NameField.setVisible(false);
 		team3NameField.setVisible(false);
 		team4NameField.setVisible(false);
+		maxZeichenJLabel.setVisible(false);
+		linieField.setVisible(false);
 		 
 
 		// 2 Fenster
@@ -491,7 +505,6 @@ public class Quiz extends JFrame implements ActionListener {
 	    Team3.setFont(schriftart2);
 	    Team4.setFont(schriftart2);
 	    Frage.setFont(schriftart2);
-	    
 
 	    Font schriftart3 = new Font("Arial", Font.BOLD + Font.ITALIC, 19);
 	    punkteübersicht.setFont(schriftart3);
@@ -504,6 +517,8 @@ public class Quiz extends JFrame implements ActionListener {
 	    team3NameFieldSchrift.setFont(schriftart4);
 	    team4NameFieldSchrift.setFont(schriftart4);
 	    
+	    maxZeichenJLabel.setFont(schriftart4);
+	    
 	    Font schriftart5 = new Font("Arial", Font.BOLD + Font.ITALIC, 36);
 	    commingSoonField.setFont(schriftart5);
 
@@ -513,7 +528,7 @@ public class Quiz extends JFrame implements ActionListener {
 
 	private void setupMenue() {
 		menueFrame.setTitle("Menue");
-		menueFrame.setSize(300, 190);
+		menueFrame.setSize(300, 185);
 		menueFrame.setLocation(185, 180);
 		menueFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menueFrame.setAlwaysOnTop(true);
@@ -610,10 +625,13 @@ public class Quiz extends JFrame implements ActionListener {
 			team2NameFieldSchrift.setVisible(true);
 			team1NameField.setVisible(true);
 			team2NameField.setVisible(true);
+			linieField.setVisible(true);
 			
-			menueFrame.setSize(300, 320);
-			startButton.setBounds(150, 220, 110, 50);
+			menueFrame.setSize(300, 340);
+			startButton.setBounds(150, 240, 110, 50);
 
+			maxZeichenJLabel.setVisible(true);
+			
 			teamAnzahlWert = 2;
 		}
 
@@ -633,9 +651,14 @@ public class Quiz extends JFrame implements ActionListener {
 			team1NameField.setVisible(true);
 			team2NameField.setVisible(true);
 			team3NameField.setVisible(true);
+			linieField.setVisible(true);
 			
 			team3NameFieldSchrift.setBounds(85, 220, 100, 50);
 			team3NameField.setBounds(85, 260, 90, 30);
+			
+			maxZeichenJLabel.setVisible(true);
+			
+			startButton.setBounds(150, 300, 110, 50);
 			
 			menueFrame.setSize(300, 400);
 			
@@ -653,8 +676,11 @@ public class Quiz extends JFrame implements ActionListener {
 			team2NameField.setVisible(true);
 			team3NameField.setVisible(true);
 			team4NameField.setVisible(true);
+			linieField.setVisible(true);
 			
-			menueFrame.setSize(300, 400);
+			maxZeichenJLabel.setVisible(true);
+			
+			menueFrame.setSize(300, 420);
 
 			 teamAnzahlWert = 4;
 			}
@@ -686,11 +712,14 @@ public class Quiz extends JFrame implements ActionListener {
 			team2NameField.setVisible(false);
 			team3NameField.setVisible(false);
 			team4NameField.setVisible(false);
+			linieField.setVisible(false);
 			
-			menueFrame.setSize(300, 190);
-			startButton.setBounds(150, 300, 110, 50);
-			team3NameField.setBounds(20, 260, 90, 30);
-			team3NameFieldSchrift.setBounds(20, 220, 100, 50);
+			menueFrame.setSize(300, 185);
+			startButton.setBounds(150, 325, 110, 50);
+			team3NameField.setBounds(20, 285, 90, 30);
+			team3NameFieldSchrift.setBounds(20, 245, 100, 50);
+			
+			maxZeichenJLabel.setVisible(false);
 			 
 
 			 teamAnzahlWert = 0;
