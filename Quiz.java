@@ -142,6 +142,8 @@ public class Quiz extends JFrame implements ActionListener {
 	JLabel commingSoonField;
 	
 	JLabel linieField;
+	
+	JButton uebernehmenButton;
 
 	JFrame menueFrame = new JFrame();
 	JFrame beantwortenFrame = new JFrame();
@@ -228,6 +230,10 @@ public class Quiz extends JFrame implements ActionListener {
 		 linieField = new JLabel("—————————————————————");
 		 linieField.setBounds(10, 120, 500, 50);
 		 menueFrame.add(linieField);
+
+		 uebernehmenButton = new JButton("übernehmen");
+		 uebernehmenButton.setBounds(20, 300, 106, 30);
+		 menueFrame.add(uebernehmenButton);
 		 
 		team1NameFieldSchrift.setVisible(false);
 		team2NameFieldSchrift.setVisible(false);
@@ -239,6 +245,9 @@ public class Quiz extends JFrame implements ActionListener {
 		team4NameField.setVisible(false);
 		maxZeichenJLabel.setVisible(false);
 		linieField.setVisible(false);
+		uebernehmenButton.setVisible(false);
+		startButton.setVisible(false);
+
 		 
 
 		// 2 Fenster
@@ -320,14 +329,15 @@ public class Quiz extends JFrame implements ActionListener {
 		teamanzahl4.addActionListener(this);
 		zurueckButton.addActionListener(this);
 		startButton.addActionListener(this);
+		uebernehmenButton.addActionListener(this);
 
 
 
 		// "JLabelss (Text)"
-		 kategorie1 = new JLabel("kategorie1");
-		 kategorie2 = new JLabel("kategorie2");
-		 kategorie3 = new JLabel("kategorie3");
-		 kategorie4 = new JLabel("kategorie4");
+		 kategorie1 = new JLabel("plus/minus");
+		 kategorie2 = new JLabel("mal");
+		 kategorie3 = new JLabel("geteilt");
+		 kategorie4 = new JLabel("Gemischt");
 
 
 
@@ -358,13 +368,13 @@ public class Quiz extends JFrame implements ActionListener {
 		 beantwortenFrame.add(ueberpruefen);
 
 		// kategorien
-		 kategorie1.setBounds(45, -40, 120, 120);
+		 kategorie1.setBounds(35, -40, 180, 120);
 		 quizFensterFrame.add(kategorie1); 
 
-	      kategorie2.setBounds(195, -40, 120, 120);
+	      kategorie2.setBounds(230, -40, 120, 120);
 	      quizFensterFrame.add(kategorie2); 
 
-	      kategorie3.setBounds(345, -40, 120, 120);
+	      kategorie3.setBounds(365, -40, 120, 120);
 	      quizFensterFrame.add(kategorie3); 
 
 	      kategorie4.setBounds(495, -40, 120, 120);
@@ -402,8 +412,7 @@ public class Quiz extends JFrame implements ActionListener {
 
 
 		// Fragen
-		//frage3500.setVisible(false);
-		//frage3500.setVisible(true); 
+
 
 	    frage1100.setBounds(43, 40, 110, 50);
 	    quizFensterFrame.add(frage1100); 
@@ -475,19 +484,19 @@ public class Quiz extends JFrame implements ActionListener {
 	 // Team stuff
 
 	    blau1.setBackground(lightBlueColor); // Position 1
-	 	blau1.setBounds(230, 360, 70, 45);
+	 	blau1.setBounds(230, 360, 80, 45);
 	 	quizFensterFrame.add(blau1);
 
 	 	grau2.setBackground(Color.LIGHT_GRAY); // Position 2
-	 	grau2.setBounds(333, 360, 70, 45);
+	 	grau2.setBounds(333, 360, 80, 45);
 	 	quizFensterFrame.add(grau2);
 
 	 	grau3.setBackground(Color.LIGHT_GRAY); // Position 3
-	 	grau3.setBounds(430, 360, 70, 45);
+	 	grau3.setBounds(430, 360, 80, 45);
 	 	quizFensterFrame.add(grau3);
 
 	    grau1.setBackground(Color.LIGHT_GRAY); // Position 4
-	    grau1.setBounds(530, 360, 70, 45);
+	    grau1.setBounds(530, 360, 80, 45);
 	    quizFensterFrame.add(grau1);
 
 
@@ -626,9 +635,11 @@ public class Quiz extends JFrame implements ActionListener {
 			team1NameField.setVisible(true);
 			team2NameField.setVisible(true);
 			linieField.setVisible(true);
+			uebernehmenButton.setVisible(true);
 			
 			menueFrame.setSize(300, 340);
 			startButton.setBounds(150, 240, 110, 50);
+			uebernehmenButton.setBounds(20, 243, 106, 30);
 
 			maxZeichenJLabel.setVisible(true);
 			
@@ -652,9 +663,12 @@ public class Quiz extends JFrame implements ActionListener {
 			team2NameField.setVisible(true);
 			team3NameField.setVisible(true);
 			linieField.setVisible(true);
+			uebernehmenButton.setVisible(true);
+
 			
 			team3NameFieldSchrift.setBounds(85, 220, 100, 50);
 			team3NameField.setBounds(85, 260, 90, 30);
+			uebernehmenButton.setBounds(20, 300, 106, 30);
 			
 			maxZeichenJLabel.setVisible(true);
 			
@@ -677,10 +691,13 @@ public class Quiz extends JFrame implements ActionListener {
 			team3NameField.setVisible(true);
 			team4NameField.setVisible(true);
 			linieField.setVisible(true);
+			uebernehmenButton.setVisible(true);
+
 			
 			maxZeichenJLabel.setVisible(true);
 			
 			menueFrame.setSize(300, 420);
+			uebernehmenButton.setBounds(20, 323, 106, 30);
 
 			 teamAnzahlWert = 4;
 			}
@@ -720,17 +737,85 @@ public class Quiz extends JFrame implements ActionListener {
 			team3NameFieldSchrift.setBounds(20, 245, 100, 50);
 			
 			maxZeichenJLabel.setVisible(false);
-			 
+			uebernehmenButton.setVisible(false);
+			startButton.setVisible(false);
+ 
 
 			 teamAnzahlWert = 0;
 
 		}
+		 
+		 if (ae.getSource() ==  uebernehmenButton) {
+			 	
+			 if (team1NameField.getText().length() == 0) {
+				 team1NameField.setText("Team 1");	
+			}
+		
+			 if (team1NameField.getText().length() <= 8 ) {
+				 startButton.setVisible(true);	 
+			}else {
+				maxZeichenJLabel.setForeground(Color.red);
+				team1NameField.setText("");
+				//maxZeichenJLabel.setForeground(Color.black);
+			}
+			 
+			 if (team2NameField.getText().length() == 0) {
+				 team2NameField.setText("Team 2");	
+			}
+		
+			 if (team2NameField.getText().length() <= 8 ) {
+				 startButton.setVisible(true);	 
+			}else {
+				maxZeichenJLabel.setForeground(Color.red);
+				team2NameField.setText("");
+				//maxZeichenJLabel.setForeground(Color.black);
+			} 
+			 
+			 if (team3NameField.getText().length() == 0) {
+				 team3NameField.setText("Team 3");	
+			}
+		
+			 if (team3NameField.getText().length() <= 8 ) {
+				 startButton.setVisible(true);	 
+			}else {
+				maxZeichenJLabel.setForeground(Color.red);
+				team3NameField.setText("");
+				//maxZeichenJLabel.setForeground(Color.black);
+			} 
+			 
+			 if (team4NameField.getText().length() == 0) {
+				 team4NameField.setText("Team 4");	
+			}
+		
+			 if (team4NameField.getText().length() <= 8 ) {
+				 startButton.setVisible(true);	 
+			}else {
+				maxZeichenJLabel.setForeground(Color.red);
+				team4NameField.setText("");
+				//maxZeichenJLabel.setForeground(Color.black);
+			} 
+ 
+			 
+		 }
 		 
 		 if (ae.getSource() == startButton) {
 			 
 			 quizFensterFrame.setVisible(true);
 		 
 			 menueFrame.setVisible(false);
+			 
+			 String AusgelesenTeam1 = team1NameField.getText();
+			 Team1.setText(AusgelesenTeam1);
+
+			 String AusgelesenTeam2 = team2NameField.getText();
+			 Team2.setText(AusgelesenTeam2);
+			 
+			 String AusgelesenTeam3 = team3NameField.getText();
+			 Team3.setText(AusgelesenTeam3);
+			 
+			 String AusgelesenTeam4 = team4NameField.getText();
+			 Team4.setText(AusgelesenTeam4);
+			 			 
 		 }
 
 		// ueberpruefen stuff
