@@ -70,12 +70,14 @@ public class Quiz extends JFrame implements ActionListener {
 
 	double loesungALL;
 
-	double loesungfrage1100 = 9;
-	double loesungfrage1200 = 10;
+	/*
+	double loesungfrage1100;
+	double loesungfrage1200;
 	double loesungfrage1300;
 	double loesungfrage1400;
 	double loesungfrage1500;
-
+	 */
+	
 	double loesungfrage2100;
 	double loesungfrage2200;
 	double loesungfrage2300;
@@ -334,9 +336,9 @@ public class Quiz extends JFrame implements ActionListener {
 
 
 		// "JLabelss (Text)"
-		 kategorie1 = new JLabel("plus/minus");
-		 kategorie2 = new JLabel("mal");
-		 kategorie3 = new JLabel("geteilt");
+		 kategorie1 = new JLabel("+ / -");
+		 kategorie2 = new JLabel("*");
+		 kategorie3 = new JLabel("÷");
 		 kategorie4 = new JLabel("Gemischt");
 
 
@@ -368,13 +370,13 @@ public class Quiz extends JFrame implements ActionListener {
 		 beantwortenFrame.add(ueberpruefen);
 
 		// kategorien
-		 kategorie1.setBounds(35, -40, 180, 120);
+		 kategorie1.setBounds(75, -40, 180, 120);
 		 quizFensterFrame.add(kategorie1); 
 
-	      kategorie2.setBounds(230, -40, 120, 120);
+	      kategorie2.setBounds(245, -33, 120, 120);
 	      quizFensterFrame.add(kategorie2); 
 
-	      kategorie3.setBounds(365, -40, 120, 120);
+	      kategorie3.setBounds(390, -38, 120, 120);
 	      quizFensterFrame.add(kategorie3); 
 
 	      kategorie4.setBounds(495, -40, 120, 120);
@@ -825,14 +827,44 @@ public class Quiz extends JFrame implements ActionListener {
 			teamSwitch();
 
 		} 
-
-
+		Random random1 = new Random();
+		
+		
+		// Plus generator
+		int min1 = 50;
+		int max1 = 1000;
+		int TausendWert = random1.nextInt(max1 + min1);
+		
+		int TausendWert2 = random1.nextInt(max1 + min1);
+	
+		
+		int min2 = 50;
+		int max2 = 10000;
+		int zehnTausendWert = random1.nextInt(max2 + min2);
+		
+		int zehnTausendWert2 = random1.nextInt(max2 + min2);
+		
+		
+		int min3 = 50;
+		int max3 = 10000;
+		int hundertTausendWert = random1.nextInt(max3 + min3);
+		
+		int hundertTausendWert2 = random1.nextInt(max3 + min3);
+		
+		// Minus generator
+		
+		
+		
+		
+		
+		
 
 		// Kategori 1
 		 if (ae.getSource() == frage1100) {
 			 beantwortenFrame.setVisible(true);
-			 Frage.setText(" 4 + 5 = ");
-
+			 Frage.setText(TausendWert + " + " + TausendWert2 + " = ");
+			 double loesungfrage1100 = TausendWert + TausendWert2;
+			 
 			 punkteALL = punkteALL + punkte100;
 			 loesungALL = loesungfrage1100;
 
@@ -841,7 +873,8 @@ public class Quiz extends JFrame implements ActionListener {
 
 		 if (ae.getSource() == frage1200) {
 				beantwortenFrame.setVisible(true); 
-				Frage.setText(" 5 + 5 = ");
+				Frage.setText(zehnTausendWert + " + " + TausendWert2 + " = ");
+				 double loesungfrage1200 = zehnTausendWert + TausendWert2;
 
 				 punkteALL = punkteALL + punkte200;
 				 loesungALL = loesungfrage1200;
@@ -851,7 +884,8 @@ public class Quiz extends JFrame implements ActionListener {
 
 		 if (ae.getSource() == frage1300) {
 				beantwortenFrame.setVisible(true);
-				Frage.setText(" 5 + 5 = ");
+				Frage.setText(zehnTausendWert + " + " + zehnTausendWert + " = ");
+				 double loesungfrage1300 = zehnTausendWert + zehnTausendWert;
 
 				 punkteALL = punkteALL + punkte300;
 				 loesungALL = loesungfrage1300;
@@ -861,7 +895,8 @@ public class Quiz extends JFrame implements ActionListener {
 
 		 if (ae.getSource() == frage1400) {
 				beantwortenFrame.setVisible(true);
-				Frage.setText(" 5 + 5 = ");
+				Frage.setText(hundertTausendWert + " + " + zehnTausendWert + " + " + TausendWert + " = ");
+				 double loesungfrage1400 = hundertTausendWert + zehnTausendWert + TausendWert;
 
 				 punkteALL = punkteALL + punkte400;
 				 loesungALL = loesungfrage1400;
@@ -871,7 +906,8 @@ public class Quiz extends JFrame implements ActionListener {
 
 		 if (ae.getSource() == frage1500) {
 				beantwortenFrame.setVisible(true);
-				Frage.setText(" 5 + 5 = ");
+				Frage.setText(hundertTausendWert + " + " + hundertTausendWert2 + " + " + zehnTausendWert + " + " + zehnTausendWert2 + " = ");
+				double loesungfrage1500 = hundertTausendWert + hundertTausendWert2 + zehnTausendWert + zehnTausendWert2;
 
 				 punkteALL = punkteALL + punkte500;
 				 loesungALL = loesungfrage1500;
